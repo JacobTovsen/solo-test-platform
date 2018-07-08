@@ -1,8 +1,23 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
+import axios from 'axios';
 
 class App extends Component {
+
+  componentDidMount(){
+    this.getDataFromThingSpeak();
+  }
+
+  getDataFromThingSpeak() {
+    console.assert('in axios GET from thingspeak');
+    axios.get('/data').then((response) => {
+      console.log(response.data);
+    }).catch((error) => {
+      console.log('Error in GET:', error);
+    })
+  }
+
   render() {
     return (
       <div className="App">
