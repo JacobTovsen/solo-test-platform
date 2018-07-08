@@ -11,7 +11,8 @@ class App extends Component {
 
   getDataFromThingSpeak() {
     console.assert('in axios GET from thingspeak');
-    axios.get('/data').then((response) => {
+    axios.get('https://api.thingspeak.com/channels/531144/feeds.json?api_key=XL6MLIU6AKP8I2Y7&results=50')
+    .then((response) => {
       console.log(response.data);
     }).catch((error) => {
       console.log('Error in GET:', error);
